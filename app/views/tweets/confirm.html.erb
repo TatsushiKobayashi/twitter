@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+  <h3>以下の内容で、つぶやく。</h3>
+
+  <%= form_for(@tweet) do |f| %>
+    <%= f.hidden_field :content %>
+    <p>ツイート:<%= @tweet.content %></p>
+    <%= f.submit "つぶやく",class: 'btn btn-primary btn-block' %>
+    <br>
+  <% end %>
+
+  <%= form_for(@tweet, url: new_tweet_path, method: 'get') do |f| %>
+    <%= f.hidden_field :content %>
+    <%= f.submit "もどる", name: 'back', class: 'btn btn-default btn-block' %>
+  <% end %>
+  </div>
+</div>
